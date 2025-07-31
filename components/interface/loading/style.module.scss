@@ -1,0 +1,21 @@
+.loading{
+    stroke: #fff;
+    // stroke: #f79448;
+    position: absolute;
+    // rotate: 10deg;
+
+    stroke-dashoffset: 60;
+    // stroke-dasharray: 90;
+    animation: loading 600ms linear infinite   ;
+}
+@keyframes loading {
+    0%{
+        stroke-dasharray:40;
+        // rotate: 10deg;
+        // opacity: 0.3;
+    }
+    100%{
+        stroke-dasharray: 115;
+        opacity: 1;
+    }
+}

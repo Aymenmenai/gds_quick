@@ -1,0 +1,47 @@
+{
+    "entree":[
+        {"id":1,"title":"Numero de bon","field":"number","type":"auto"},
+        {"id":2,"title":"Bon de livraison","field":"bon_de_livraison","type":""},
+        {"id":3,"title":"Facture","field":"facteur","type":""},
+        {"id":4,"title":"Date","field":"date","type":"date"},
+        {"id":5,"title":"Fournisseur","field":"Fournisseur","type":"select"}
+    ],
+    "sortie":[
+        {"id":1 ,"title":"Numero de bon","field":"","placeholder":"","type":"auto"},
+        {"id":2 ,"title":"Date","field":"","placeholder":"","type":"date"},
+        {"id":3 ,"title":"Beneficiare","field":"","placeholder":"","type":"select"},
+        {"id":3 ,"title":"Vehicule","field":"","placeholder":"","type":"select"}
+    ],
+    "article":[
+        {"id":1 ,"title":"Familly","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Nom de piece","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Marque","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Designation","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Price","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Tax","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Quantity","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Unite","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"ExpiredDate","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Attribute","field":"","placeholder":"","type":""}
+    ],
+    "article_sortant":[
+        {"id":1 ,"title":"Article","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"Quantity","field":"","placeholder":"","type":""}
+    ],
+    "vehicule":[
+        {"id":1 ,"title":"Marque","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"VehiculeType","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"name","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"motorisation","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"serialCode","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"matericule","field":"","placeholder":"","type":""}
+
+    ],
+    "reference":[
+        {"id":1 ,"title":"Global reference","field":"","placeholder":"","type":""},
+        {"id":1 ,"title":"name","field":"","placeholder":"","type":""}
+    ],
+    "standart":[
+        {"id":1 ,"title":"name","field":"","placeholder":"","type":""}
+    ]
+}

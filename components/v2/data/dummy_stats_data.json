@@ -1,0 +1,279 @@
+{
+  "monthly_movements": [
+    {
+      "month": "Jul 2024",
+      "entries": 184,
+      "sorties": 202
+    },
+    {
+      "month": "Aug 2024",
+      "entries": 271,
+      "sorties": 143
+    },
+    {
+      "month": "Sep 2024",
+      "entries": 230,
+      "sorties": 300
+    },
+    {
+      "month": "Oct 2024",
+      "entries": 286,
+      "sorties": 122
+    },
+    {
+      "month": "Nov 2024",
+      "entries": 248,
+      "sorties": 181
+    },
+    {
+      "month": "Dec 2024",
+      "entries": 280,
+      "sorties": 130
+    },
+    {
+      "month": "Jan 2025",
+      "entries": 196,
+      "sorties": 293
+    },
+    {
+      "month": "Feb 2025",
+      "entries": 273,
+      "sorties": 212
+    },
+    {
+      "month": "Mar 2025",
+      "entries": 184,
+      "sorties": 305
+    },
+    {
+      "month": "Apr 2025",
+      "entries": 257,
+      "sorties": 222
+    },
+    {
+      "month": "May 2025",
+      "entries": 251,
+      "sorties": 159
+    },
+    {
+      "month": "Jun 2025",
+      "entries": 269,
+      "sorties": 215
+    }
+  ],
+  "top_articles": [
+    {
+      "rank": 1,
+      "name": "Article A",
+      "value": 958
+    },
+    {
+      "rank": 2,
+      "name": "Article B",
+      "value": 1040
+    },
+    {
+      "rank": 3,
+      "name": "Article C",
+      "value": 1127
+    },
+    {
+      "rank": 4,
+      "name": "Article D",
+      "value": 1057
+    },
+    {
+      "rank": 5,
+      "name": "Article E",
+      "value": 639
+    },
+    {
+      "rank": 6,
+      "name": "Article F",
+      "value": 866
+    },
+    {
+      "rank": 7,
+      "name": "Article G",
+      "value": 962
+    },
+    {
+      "rank": 8,
+      "name": "Article H",
+      "value": 1034
+    },
+    {
+      "rank": 9,
+      "name": "Article I",
+      "value": 658
+    },
+    {
+      "rank": 10,
+      "name": "Article J",
+      "value": 1088
+    }
+  ],
+  "storage_durations": [
+    {
+      "name": "Article A",
+      "value": 8
+    },
+    {
+      "name": "Article B",
+      "value": 52
+    },
+    {
+      "name": "Article C",
+      "value": 29
+    },
+    {
+      "name": "Article D",
+      "value": 24
+    },
+    {
+      "name": "Article E",
+      "value": 59
+    },
+    {
+      "name": "Article F",
+      "value": 16
+    },
+    {
+      "name": "Article G",
+      "value": 44
+    },
+    {
+      "name": "Article H",
+      "value": 48
+    },
+    {
+      "name": "Article I",
+      "value": 57
+    },
+    {
+      "name": "Article J",
+      "value": 31
+    }
+  ],
+  "top_beneficiaries": [
+    {
+      "rank": 1,
+      "name": "Beneficiaire 1",
+      "value": 147
+    },
+    {
+      "rank": 2,
+      "name": "Beneficiaire 2",
+      "value": 552
+    },
+    {
+      "rank": 3,
+      "name": "Beneficiaire 3",
+      "value": 376
+    },
+    {
+      "rank": 4,
+      "name": "Beneficiaire 4",
+      "value": 388
+    },
+    {
+      "rank": 5,
+      "name": "Beneficiaire 5",
+      "value": 257
+    }
+  ],
+  "top_suppliers": [
+    {
+      "rank": 1,
+      "name": "Supplier 1",
+      "value": 902
+    },
+    {
+      "rank": 2,
+      "name": "Supplier 2",
+      "value": 323
+    },
+    {
+      "rank": 3,
+      "name": "Supplier 3",
+      "value": 511
+    },
+    {
+      "rank": 4,
+      "name": "Supplier 4",
+      "value": 994
+    },
+    {
+      "rank": 5,
+      "name": "Supplier 5",
+      "value": 751
+    }
+  ],
+  "category_breakdown": [
+    {
+      "name": "Fuel",
+      "value": 500
+    },
+    {
+      "name": "Parts",
+      "value": 800
+    },
+    {
+      "name": "Tools",
+      "value": 600
+    },
+    {
+      "name": "Electronics",
+      "value": 400
+    }
+  ],
+  "dead_stock": [
+    {
+      "name": "Article K",
+      "last_movement_days_ago": 242
+    },
+    {
+      "name": "Article L",
+      "last_movement_days_ago": 162
+    },
+    {
+      "name": "Article M",
+      "last_movement_days_ago": 343
+    },
+    {
+      "name": "Article N",
+      "last_movement_days_ago": 279
+    },
+    {
+      "name": "Article O",
+      "last_movement_days_ago": 206
+    }
+  ],
+  "low_stock": [
+    {
+      "name": "Article P",
+      "quantity": 3,
+      "min_required": 10
+    },
+    {
+      "name": "Article Q",
+      "quantity": 4,
+      "min_required": 10
+    },
+    {
+      "name": "Article R",
+      "quantity": 2,
+      "min_required": 10
+    },
+    {
+      "name": "Article S",
+      "quantity": 5,
+      "min_required": 10
+    },
+    {
+      "name": "Article T",
+      "quantity": 2,
+      "min_required": 10
+    }
+  ]
+}

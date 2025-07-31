@@ -1,0 +1,223 @@
+{
+  "search": [
+    { "name": "Designation", "field": "J_ArticleQuiSorts_Article.name" },
+    { "name": "Emplacement", "field": "Article.place" },
+    { "name": "N bE", "field": "J_Article_Entree.number[eq]" },
+    { "name": "N bS", "field": "J_ArticleQuiSorts_Sortie.number[eq]" },
+
+    {
+      "type": "text",
+      "field": "J_Article_Ref.id",
+      "name": "Reference",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/ref?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "J_Article_Unit.id",
+      "name": "Unité",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/unit?fields=id,name&limit=5"
+    },
+    {
+      "name": "Family",
+      "field": "J_SousFamily_Family.id",
+      "type": "text",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/family?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "J_Article_SousFamily.id",
+      "name": "Sous-family",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/sousfamily?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "SortieId",
+      "name": "Sortie",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/sortie?fields=id,number&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "J_Sortie_Beneficiare.id",
+      "name": "Beneficiare",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/beneficiare?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "J_Entree_Fournisseur.id",
+      "name": "Fournisseur",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/fournisseur?fields=id,name&limit=5"
+    }
+  ],
+
+  "filter": [
+    { "name": "Date", "field": "date", "type": "date" },
+    { "name": "prix", "field": "price", "type": "number" },
+    { "name": "fournisseur", "field": "FournisseurId", "type": "text" }
+  ],
+
+  "panel": [
+    {
+      "type": "date-range",
+      "field": "date",
+      "label": "Date de sortie"
+    },
+    {
+      "type": "number-range",
+      "field": "price",
+      "label": "Prix"
+    },
+    {
+      "type": "number-range",
+      "field": "quantity",
+      "label": "Quantité"
+    }
+  ],
+
+  "default_url": {
+    "route": "/articlequisort",
+    "page": 1,
+    "sort": [{ "name": "Sortie.date", "is_desc": true }],
+    "where": [],
+    "fields": [
+      {
+        "name": "Reference",
+        "field": "Article.Ref.name",
+        "active": true,
+        "value": "ref_name",
+        "is_nested": true
+      },
+      {
+        "name": "Designation",
+        "field": "Article.name",
+        "active": true,
+        "value": "article_name",
+        "is_nested": true
+      },
+      {
+        "name": "Date",
+        "field": "Sortie.date",
+        "active": true,
+        "value": "sortie_date",
+        "is_nested": true
+      },
+      { "name": "PRIX", "field": "price", "active": true, "value": "price" },
+      {
+        "name": "quantity",
+        "field": "quantity",
+        "active": true,
+        "value": "quantity"
+      },
+      {
+        "name": "U",
+        "field": "Article.Unit.name",
+        "active": true,
+        "value": "unit_name",
+        "is_nested": true
+      },
+      {
+        "name": "Sous family",
+        "field": "Article.SousFamily.name",
+        "active": true,
+        "value": "sousfamily_name",
+        "is_nested": true
+      },
+      {
+        "name": "N bE",
+        "field": "Article.Entree.number",
+        "active": true,
+        "value": "entree_number",
+        "is_nested": true
+      },
+      {
+        "name": "N bS",
+        "field": "Sortie.number",
+        "active": true,
+        "value": "sortie_number",
+        "is_nested": true
+      },
+      {
+        "name": "Beneficiare",
+        "field": "Sortie.Beneficiare.name",
+        "active": true,
+        "value": "beneficiare_name",
+        "is_nested": true
+      },
+      {
+        "name": "FOURNISSEUR",
+        "field": "Article.Entree.Fournisseur.name",
+        "active": true,
+        "value": "fournisseur_name",
+        "is_nested": true
+      }
+    ],
+    "include": [
+      {
+        "model": "Sortie",
+        "attributes": ["id", "number", "date"],
+        "include": [
+          {
+            "model": "Beneficiare",
+            "attributes": ["id", "name"]
+          }
+        ]
+      },
+      {
+        "model": "Article",
+        "attributes": ["id", "name", "place"],
+        "include": [
+          {
+            "model": "Entree",
+            "attributes": ["id", "number"],
+            "include": [
+              {
+                "model": "Fournisseur",
+                "attributes": ["id", "name"],
+                "as": "J_Article_Entree_Fournisseur"
+              }
+            ]
+          },
+          {
+            "model": "Ref",
+            "attributes": ["id", "name"]
+          },
+          {
+            "model": "Unit",
+            "attributes": ["id", "name"]
+          },
+          {
+            "model": "SousFamily",
+            "attributes": ["id", "name"],
+            "include": [
+              {
+                "model": "Family",
+                "attributes": ["id", "name"],
+                "as": "J_SousFamily_Family"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

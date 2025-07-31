@@ -1,0 +1,79 @@
+{
+  "search": [
+    { "name": "NUMERO DE BON", "field": "number[eq]" },
+    {
+      "name": "BENEFICIARE",
+      "field": "BeneficiareId",
+      "type": "text",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/beneficiare?fields=id,name&limit=5"
+    }
+  ],
+
+  "filter": [
+    { "name": "Date", "field": "date", "type": "date" },
+    { "name": "Prix", "field": "total_price", "type": "number" },
+    { "name": "Beneficiare", "field": "BeneficiareId", "type": "text" }
+  ],
+
+  "panel": [
+    {
+      "type": "date-range",
+      "field": "date",
+      "label": "Date de sortie"
+    },
+    {
+      "type": "number-range",
+      "field": "total_price",
+      "label": "Prix total"
+    }
+  ],
+
+  "default_url": {
+    "route": "/gasoilsortie",
+    "page": 1,
+    "sort": [{ "name": "date", "is_desc": true }],
+    "where": [{ "name": "number[gte]", "value": 1 }],
+    "fields": [
+      {
+        "name": "ID",
+        "field": "id",
+        "value": "id",
+        "active": true
+      },
+      {
+        "name": "NUMERO DE BON",
+        "field": "number",
+        "value": "number",
+        "active": true
+      },
+      {
+        "name": "DATE",
+        "field": "date",
+        "value": "date",
+        "active": true
+      },
+      {
+        "name": "PRIX TOTAL",
+        "field": "total_price",
+        "value": "total_price",
+        "active": true
+      },
+      {
+        "name": "BENEFICIARE",
+        "field": "Beneficiare.name",
+        "value": "beneficiare_name",
+        "active": true,
+        "is_nested": true
+      }
+    ],
+    "include": [
+      {
+        "model": "Beneficiare",
+        "attributes": ["id", "name"]
+      }
+    ]
+  }
+}

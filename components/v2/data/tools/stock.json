@@ -1,0 +1,76 @@
+{
+  "search": [{ "name": "Nom de Ref", "field": "name" }],
+
+  "filter": [
+    { "name": "Quantité", "field": "quantity", "type": "number" },
+    { "name": "Désignation", "field": "designation", "type": "text" },
+    { "name": "Alerte", "field": "Reference.is_alerted", "type": "boolean" }
+  ],
+
+  "panel": [
+    {
+      "type": "number-range",
+      "field": "quantity",
+      "label": "Quantité"
+    }
+  ],
+
+  "default_url": {
+    "route": "/ref",
+    "page": 1,
+    "sort": [{ "name": "createdAt", "is_desc": true }],
+    "where": [],
+    "fields": [
+      {
+        "name": "Id",
+        "value": "id",
+        "field": "id",
+        "active": true
+      },
+      {
+        "name": "Nom",
+        "value": "name",
+        "field": "name",
+        "active": true
+      },
+      {
+        "name": "Quantité",
+        "value": "quantity",
+        "field": "quantity",
+        "active": true
+      }
+    ],
+    "include": [
+      {
+        "model": "Reference",
+        "attributes": ["name", "is_alerted"]
+      }
+    ]
+  },
+  "add": {
+    "route": "/countage",
+    "initial_data_key": "RefId",
+    "form": [
+      {
+        "name": "Quantité",
+        "value": "quantity",
+        "field": "quantity",
+        "type": "number"
+      },
+      {
+        "name": "Date",
+        "value": "date",
+        "field": "date",
+        "type": "date"
+      },
+      {
+        "name": "Comment",
+        "value": "comment",
+        "field": "comment"
+      }
+    ]
+  },
+  "details": {
+    "url": "/timeline"
+  }
+}

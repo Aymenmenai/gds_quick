@@ -1,0 +1,80 @@
+{
+  "search": [
+    { "name": "Bon de livraison", "field": "bon_de_livraison" },
+    { "name": "Numero de facture", "field": "facture" },
+
+    { "name": "Numero de bon", "field": "number[eq]" },
+    {
+      "type": "text",
+      "field": "FournisseurId",
+      "name": "fournisseur",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/fournisseur?fields=id,name&limit=5"
+    }
+  ],
+
+  "filter": [
+    { "name": "Date", "field": "date", "type": "date" },
+    { "name": "prix", "field": "price", "type": "number" },
+    { "name": "fournisseur", "field": "FourniseeurId", "type": "text" }
+  ],
+  "panel": [
+    {
+      "type": "date-range",
+      "field": "date",
+      "label": "Date d'entrée"
+    },
+    {
+      "type": "number-range",
+      "field": "total_price",
+      "label": "Prix total"
+    }
+  ],
+  "default_url": {
+    "route": "/entree",
+    "page": 1,
+    "sort": [
+      { "name": "date", "is_desc": true },
+      { "name": "number", "is_desc": true }
+    ],
+    "where": [{ "name": "number[gte]", "value": 1 }],
+    "fields": [
+      { "name": "id", "value": "id", "field": "id", "active": true },
+      {
+        "name": "NUEMRO DE BON",
+        "value": "number",
+        "field": "number",
+        "active": true
+      },
+      { "name": "DATE", "value": "date", "field": "date", "active": true },
+      {
+        "name": "PRIX TOTAL",
+        "value": "total_price",
+        "field": "total_price",
+        "active": true
+      },
+      {
+        "name": "Bon de livraison",
+        "value": "bon_de_livraison",
+        "field": "bon_de_livraison",
+        "active": true
+      },
+      {
+        "name": "Numero de facture",
+        "value": "facture",
+        "field": "facture",
+        "active": true
+      },
+      {
+        "name": "FOURNISSEUR",
+        "value": "fournisseur_name",
+        "field": "Fournisseur.name",
+        "active": true,
+        "is_nested": true
+      }
+    ],
+    "include": [{ "model": "Fournisseur", "attributes": ["name"] }]
+  }
+}

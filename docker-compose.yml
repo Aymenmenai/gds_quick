@@ -1,0 +1,29 @@
+version: '3'
+services:
+  db:
+    ports:
+      - 5432:5432
+    restart: always
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=gestion_de_stock
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+  app:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=gestion_de_stock
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres

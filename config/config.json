@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "gestion_de_stock",
+    "host": "192.168.0.5",
+    "dialect": "postgres",
+    "port": "5432"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "gestion_de_stock",
+    "host": "host.docker.internal",
+    "dialect": "postgres",
+    "port": "8080"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "gestion_de_stock",
+    "host": "host.docker.internal",
+    "dialect": "postgres",
+    "port": "8080"
+  }
+}

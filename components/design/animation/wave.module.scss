@@ -1,0 +1,47 @@
+@mixin wave() {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 130px;
+  opacity: 0.4;
+  background: url("../../../public/path1.svg");
+  background-size: 364px 130px;
+  
+//   transform: scale(110%)
+  ;filter:blur(5px)
+  
+}
+.wave1 {
+  @include wave();
+  animation: animate 30s linear infinite;
+}
+.wave2 {
+  @include wave();
+  opacity: .3;
+  animation: animate2 15s both infinite;
+}
+.wave3 {
+  @include wave();
+  opacity: .2;
+  animation: animate 50s both infinite;
+}
+
+
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position: 500px;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position: -500px;
+  }
+}

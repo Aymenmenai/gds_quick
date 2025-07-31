@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  transition: all 200ms ease-in-out;
+  /* color: #060327; */
+  gap: 1rem;
+  font-size: 14px;
+  font-family: sans-serif;
+  /* stroke: #1e40af; */
+  /* user-select: none; */
+}
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+/* TYPOGRAPHY */
+.title-mini {
+  @apply text-2xl font-bold first-letter:uppercase;
+}
+/* WIDTH */
+.w-400 {
+  width: min(400px, 99svw);
+  margin: auto;
+}
+.w-500 {
+  width: min(500px, 99svw);
+  margin: auto;
+}
+
+.w-1200 {
+  width: min(1200px, 99svw);
+  margin: auto;
+}
+
+/* COMPONENTS */
+/* HOVERIING */
+.hover {
+  @apply hover:opacity-60 cursor-pointer;
+}
+/* INPUT */
+.input {
+  @apply px-4 py-3 focus:ring-1  bg-blue-200/30 rounded ring-1 w-full leading-tight focus:outline-none text-[#060327];
+}
+/* BUTTON */
+.btn {
+  @apply p-3 rounded-lg font-bold w-full cursor-pointer;
+}
+
+.btn-pri {
+  @apply btn text-white bg-blue-500 shadow-lg;
+}
+.btn-sec {
+  @apply btn text-blue-500 stroke-blue-500 hover;
+}
+
+.btn-r {
+  @apply p-2 hover:bg-blue-600/30 rounded-full inline-flex justify-center items-center;
+}
+
+/* WIDTH
+ */
+.w-900 {
+  width: min(900px, 90dvw);
+  margin: auto;
+}
+
+/* DYNAMICS */
+.dynamic-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 450px);
+  justify-content: center;
+}
+
+/* ANIMATIONS */
+/* LOADING */
+.progress {
+  animation: progress 800ms infinite alternate-reverse;
+}
+.reverse-flex {
+  animation: reverseflex 1600ms infinite linear;
+}
+
+@keyframes progress {
+  0%,
+  100% {
+    width: 100%;
+  }
+  50% {
+    width: 0%;
+  }
+}
+@keyframes reverseflex {
+  0% {
+    justify-content: start;
+  }
+  100% {
+    justify-content: end;
+  }
+}

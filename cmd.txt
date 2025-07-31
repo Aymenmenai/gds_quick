@@ -1,0 +1,8 @@
+sudo lsof -t -i:3000
+sudo kill 'sudo lsof -t -i:3000'
+
+
+node server/server.js
+
+
+scp -r "C:\Users\Aymen\Downloads\container_backup\app" dev@192.168.0.5:/home/dev/app

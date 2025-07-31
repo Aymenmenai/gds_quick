@@ -1,0 +1,16 @@
+.loading {
+  stroke: #fff;
+  position: absolute;
+  stroke-dashoffset: 60;
+  animation: loading 600ms linear infinite;
+}
+
+@keyframes loading {
+  0% {
+    stroke-dasharray: 40;
+  }
+  100% {
+    stroke-dasharray: 115;
+    opacity: 1;
+  }
+}/*# sourceMappingURL=style.module.css.map */

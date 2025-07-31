@@ -1,0 +1,109 @@
+{
+  "search": [
+    { "name": "Numero de bon", "field": "number[eq]" },
+    { "name": "MATERIAL", "field": "J_Sorties_Vehicule.matricule" },
+    { "name": "ENGIN", "field": "J_Sorties_Vehicule.name" },
+    {
+      "type": "text",
+      "field": "BeneficiareId",
+      "name": "beneficiare",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/beneficiare?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "name": "CLIENT",
+      "field": "J_Vehicule_VehiculeClient.id",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/vehiculeclient?fields=id,name&limit=5"
+    }
+  ],
+  "filter": [
+    { "name": "Date", "field": "date", "type": "date" },
+    { "name": "prix", "field": "price", "type": "number" },
+    { "name": "Beneficiare", "field": "BeneficiareId", "type": "text" }
+  ],
+  "panel": [
+    {
+      "type": "date-range",
+      "field": "date",
+      "label": "Date de sortie"
+    },
+    {
+      "type": "number-range",
+      "field": "total_price",
+      "label": "Prix total"
+    }
+  ],
+  "default_url": {
+    "route": "/sortie",
+    "page": 1,
+    "sort": [
+      { "name": "date", "is_desc": true },
+      { "name": "number", "is_desc": true }
+    ],
+    "where": [{ "name": "number[gte]", "value": 1 }],
+    "fields": [
+      { "name": "id", "value": "id", "field": "id", "active": true },
+      {
+        "name": "NUEMRO DE BON",
+        "field": "number",
+        "active": true,
+        "value": "number"
+      },
+      { "name": "DATE", "field": "date", "active": true, "value": "date" },
+      {
+        "name": "PRIX TOTAL",
+        "field": "total_price",
+        "active": true,
+        "value": "total_price"
+      },
+      {
+        "name": "BENEFICIARE",
+        "field": "Beneficiare.name",
+        "active": true,
+        "is_nested": true,
+        "value": "beneficiare_name"
+      },
+      {
+        "name": "ENGIN",
+        "field": "Vehicule.name",
+        "active": true,
+        "is_nested": true,
+        "value": "vehicule_name"
+      },
+      {
+        "name": "CLIENT",
+        "field": "Vehicule.VehiculeClient.name",
+        "active": true,
+        "is_nested": true,
+        "value": "vehiculeclient_name"
+      },
+      {
+        "name": "MATERIAL",
+        "field": "Vehicule.matricule",
+        "active": true,
+        "is_nested": true,
+        "value": "vehicule_matricule"
+      }
+    ],
+    "include": [
+      { "model": "Beneficiare", "attributes": ["name"] },
+      {
+        "model": "Vehicule",
+        "attributes": ["name", "matricule"],
+        "include": [
+          {
+            "model": "VehiculeClient",
+            "attributes": ["name"],
+            "required": false
+          }
+        ]
+      }
+    ]
+  }
+}

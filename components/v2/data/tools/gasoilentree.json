@@ -1,0 +1,110 @@
+{
+  "search": [
+    {
+      "name": "BENEFICIARE",
+      "field": "J_Sorties_Beneficiare.id",
+      "type": "text",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/beneficiare?fields=id,name&limit=5"
+    },
+    {
+      "name": "FOURNISSEUR",
+      "field": "FournisseurId",
+      "type": "text",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/fournisseur?fields=id,name&limit=5"
+    }
+  ],
+
+  "filter": [
+    { "name": "Date", "field": "date", "type": "date" },
+    { "name": "Prix", "field": "price", "type": "number" },
+    { "name": "Quantité", "field": "quantity", "type": "number" },
+    { "name": "Fournisseur", "field": "FournisseurId", "type": "text" }
+  ],
+
+  "panel": [
+    {
+      "type": "date-range",
+      "field": "date",
+      "label": "Date d'entrée"
+    },
+    {
+      "type": "number-range",
+      "field": "price",
+      "label": "Prix total"
+    },
+    {
+      "type": "number-range",
+      "field": "quantity",
+      "label": "Quantité"
+    }
+  ],
+
+  "default_url": {
+    "route": "/gasoilentree",
+    "page": 1,
+    "sort": [{ "name": "date", "is_desc": true }],
+    "where": [{ "name": "number[gte]", "value": 1 }],
+    "fields": [
+      {
+        "name": "ID",
+        "field": "id",
+        "active": true,
+        "value": "id"
+      },
+      {
+        "name": "NUMERO DE BON",
+        "field": "number",
+        "active": true,
+        "value": "number"
+      },
+      {
+        "name": "DATE",
+        "field": "date",
+        "active": true,
+        "value": "date"
+      },
+      {
+        "name": "PRIX TOTAL",
+        "field": "price",
+        "active": true,
+        "value": "price"
+      },
+      {
+        "name": "FACTURE",
+        "field": "facture",
+        "active": true,
+        "value": "facture"
+      },
+      {
+        "name": "QTE",
+        "field": "quantity",
+        "active": true,
+        "value": "quantity"
+      },
+      {
+        "name": "FOURNISSEUR",
+        "field": "Fournisseur.name",
+        "active": true,
+        "is_nested": true,
+        "value": "fournisseur_name"
+      }
+    ],
+    "include": [
+      {
+        "model": "Fournisseur",
+        "attributes": ["id", "name"]
+      },
+      {
+        "model": "Beneficiare",
+        "as": "J_Sorties_Beneficiare",
+        "attributes": ["id", "name"]
+      }
+    ]
+  }
+}

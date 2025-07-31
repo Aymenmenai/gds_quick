@@ -1,0 +1,291 @@
+{
+  "search": [
+    { "name": "Designation", "field": "name" },
+    { "name": "emplacement", "field": "place" },
+    { "name": "N bE", "field": "J_Articles_Entree.number" },
+
+    {
+      "type": "text",
+      "field": "J_Entree_Fournisseur.id",
+      "name": "fournisseur",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/fournisseur?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "RefId",
+      "name": "Reference",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/Ref?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "UnitId",
+      "name": "Unite",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/unit?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "J_SousFamily_Family.id",
+      "name": "Family",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/family?fields=id,name&limit=5"
+    },
+    {
+      "type": "text",
+      "field": "SousFamilyId",
+      "name": "Sous-family",
+      "allowed": true,
+      "select": true,
+      "add": false,
+      "url": "/sousfamily?fields=id,name&limit=5"
+    }
+  ],
+
+  "filter": [
+    { "name": "Date", "field": "date", "type": "date" },
+    { "name": "prix", "field": "price", "type": "number" },
+    { "name": "fournisseur", "field": "FournisseurId", "type": "text" }
+  ],
+
+  "panel": [
+    {
+      "type": "date-range",
+      "field": "date",
+      "label": "Date d'article"
+    },
+    {
+      "type": "number-range",
+      "field": "price",
+      "label": "Prix unitaire"
+    },
+    {
+      "type": "number-range",
+      "field": "initial_quantity",
+      "label": "Quantite d'entree"
+    },
+    {
+      "type": "number-range",
+      "field": "quantity",
+      "label": "Quantite reel"
+    }
+  ],
+
+  "default_url": {
+    "route": "/article",
+    "page": 1,
+    "sort": [{ "name": "date", "is_desc": true }],
+    "where": [],
+    "fields": [
+      { "name": "id", "value": "id", "field": "id", "active": true },
+      {
+        "name": "Reference",
+        "field": "Ref.name",
+        "value": "ref_name",
+        "active": true,
+        "is_nested": true
+      },
+      {
+        "name": "Designation",
+        "field": "name",
+        "value": "name",
+        "active": true
+      },
+      {
+        "name": "Date",
+        "field": "date",
+        "value": "date",
+        "active": true
+      },
+      {
+        "name": "PRIX",
+        "field": "price",
+        "value": "price",
+        "active": true
+      },
+      {
+        "name": "QTE EN ",
+        "field": "initial_quantity",
+        "value": "initial_quantity",
+        "active": true
+      },
+      {
+        "name": "quantity",
+        "field": "quantity",
+        "value": "quantity",
+        "active": true
+      },
+      {
+        "name": "emplacement",
+        "field": "place",
+        "value": "place",
+        "active": true
+      },
+
+      {
+        "name": "Unite",
+        "field": "Unit.name",
+        "value": "unit_name",
+        "active": true,
+        "is_nested": true
+      },
+      {
+        "name": "Sous-family",
+        "field": "SousFamily.name",
+        "value": "sousfamily_name",
+        "active": true,
+        "is_nested": true
+      },
+      {
+        "name": "N Entree",
+        "field": "Entree.number",
+        "value": "entree_number",
+        "active": true,
+        "is_nested": true
+      },
+      {
+        "name": "FOURNISSEUR",
+        "field": "Entree.Fournisseur.name",
+        "value": "fournisseur_name",
+        "active": true,
+        "is_nested": true
+      }
+    ],
+    "include": [
+      {
+        "model": "SousFamily",
+        "attributes": ["name", "id"],
+        "include": [{ "model": "Family", "attributes": ["id", "name"] }]
+      },
+      {
+        "model": "Entree",
+        "attributes": ["id", "number"],
+        "include": [
+          {
+            "model": "Fournisseur",
+            "attributes": ["name"]
+          }
+        ]
+      },
+      {
+        "model": "Unit",
+        "attributes": ["name"]
+      },
+      {
+        "model": "Ref",
+        "attributes": ["name"],
+        "include": [
+          {
+            "model": "Reference",
+            "attributes": ["alert"]
+          }
+        ]
+      }
+    ]
+  },
+  "edit": [
+    {
+      "id": 0,
+      "type": "text",
+      "field": "RefId",
+      "value": "RefId",
+      "name": "Reference",
+      "allowed": true,
+      "select": true,
+      "url": "/ref?fields=id,name&limit=5"
+    },
+    {
+      "id": 1,
+      "type": "text",
+      "field": "TagId",
+      "value": "TagId",
+      "name": "Piece",
+      "allowed": true,
+      "select": true,
+      "url": "/tag?fields=id,name&limit=5"
+    },
+    {
+      "id": 2,
+      "type": "text",
+      "field": "BrandId",
+      "value": "BrandId",
+      "name": "marque",
+      "allowed": true,
+      "select": true,
+      "url": "/brand?fields=id,name&limit=5"
+    },
+    {
+      "id": 3,
+      "type": "text",
+      "field": "UnitId",
+      "value": "UnitId",
+      "name": "unite",
+      "allowed": true,
+      "select": true,
+      "url": "/unit?fields=id,name&limit=5"
+    },
+    {
+      "id": 5,
+      "type": "text",
+      "field": "SousFamilyId",
+      "value": "SousFamilyId",
+      "name": "sous-Family",
+      "allowed": true,
+      "select": true,
+      "url": "/family?fields=id,name&limit=5"
+    },
+    {
+      "id": 6,
+      "type": "text",
+      "field": "name",
+      "value": "name",
+      "name": "Designation",
+      "allowed": true
+    },
+    {
+      "id": 11,
+      "type": "text",
+      "field": "place",
+      "value": "place",
+      "name": "Emplacement",
+      "allowed": true,
+      "manual-refetch": true,
+      "url": false
+    }
+  ],
+  "add": {
+    "route": "/articlecountage",
+    "initial_data_key": "ArticleId",
+    "form": [
+      {
+        "name": "Quantité",
+        "value": "quantity",
+        "field": "quantity",
+        "type": "number"
+      },
+      {
+        "name": "Date",
+        "value": "date",
+        "field": "date",
+        "type": "date"
+      },
+      {
+        "name": "Comment",
+        "value": "comment",
+        "field": "comment"
+      }
+    ]
+  },
+  "details": {
+    "url": "/article/timeline"
+  }
+}
